@@ -1,0 +1,19 @@
+<div class="main">
+  <h1>Guilherme 252862 - Otavio 253525</h1>
+
+  <input class="lg-text-input" #campoNovoItem />
+
+  <button class="btn-primary" (click)="CREATE_tarefa(campoNovoItem.value)">
+    Adicionar Tarefa
+  </button>
+
+  <ul>
+    <li *ngFor="let tarefaDoLoop of arrayDeTarefas()">
+      <app-item 
+        [tarefa]="tarefaDoLoop" 
+        (remover)="DELETE_tarefa($event)" 
+        (modificaTarefa)="UPDATE_tarefa($event)">
+      </app-item>
+    </li>
+  </ul>
+</div>
