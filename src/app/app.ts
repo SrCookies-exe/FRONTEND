@@ -30,9 +30,9 @@ export class App {
   }
 
   READ_tarefa() {
-    this.http.get<Tarefa[]>(`${this.apiURL}/api/getAll`)
-      .subscribe(resultado => this.arrayDeTarefas.set(resultado));
-  }
+  this.http.get<Tarefa[]>(`${this.apiURL}/api/getAll?nocache=${Date.now()}`)
+    .subscribe(resultado => this.arrayDeTarefas.set(resultado));
+ }
 
   DELETE_tarefa(tarefa: Tarefa) {
   this.http.delete(`${this.apiURL}/api/delete/${tarefa._id}`)
