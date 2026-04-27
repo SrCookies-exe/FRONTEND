@@ -54,3 +54,78 @@ ul {
 ul li {
     list-style: none;
 }
+
+
+.item {
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+}
+
+
+.tarefa-linha {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+
+.done {
+  text-decoration: line-through;
+  color: gray;
+}
+
+
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+
+.btn {
+  border-radius: 20px; /* 👈 ARREDONDADO */
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+
+.btn-edit {
+  background: #ddd;
+}
+
+.btn-warn {
+  background: #ff4d4d;
+  color: white;
+}
+
+.btn-save {
+  background: #4CAF50;
+  color: white;
+}
+
+.btn-cancel {
+  background: #888;
+  color: white;
+}
+
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+
+.edit-box {
+  margin-top: 10px;
+}
+
+h1 span {
+  display: block;
+  font-size: 18px;
+  font-weight: normal;
+}

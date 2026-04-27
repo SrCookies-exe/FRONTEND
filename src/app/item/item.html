@@ -1,38 +1,42 @@
 <div class="item">
+
+  <div class="tarefa-linha">
     <input 
-        [id]="tarefa.descricao" 
-        type="checkbox" 
-        [checked]="tarefa.statusRealizada"
-        (change)="tarefa.statusRealizada = !tarefa.statusRealizada; modificaTarefa.emit(tarefa)" 
+      [id]="tarefa.descricao" 
+      type="checkbox" 
+      [checked]="tarefa.statusRealizada"
+      (change)="tarefa.statusRealizada = !tarefa.statusRealizada; modificaTarefa.emit(tarefa)" 
     />
 
     <label 
-        [for]="tarefa.descricao"
-        [style.text-decoration]="tarefa.statusRealizada ? 'line-through' : 'none'">
-        {{ tarefa.descricao }}
+      [for]="tarefa.descricao"
+      [class.done]="tarefa.statusRealizada">
+      {{ tarefa.descricao }}
     </label>
+  </div>
 
-    <div *ngIf="!emEdicao" class="btn-wrapper">
-        <button class="btn" (click)="emEdicao = true">Editar</button>
-        <button class="btn btn-warn" (click)="remover.emit(tarefa)">Remover</button>
+  <div *ngIf="!emEdicao" class="btn-wrapper">
+    <button class="btn btn-edit" (click)="emEdicao = true">Editar</button>
+    <button class="btn btn-warn" (click)="remover.emit(tarefa)">Remover</button>
+  </div>
+
+  <div *ngIf="emEdicao" class="edit-box">
+    <input 
+      class="sm-text-input" 
+      #editedItem 
+      placeholder="Novo nome da tarefa" 
+      [value]="tarefa.descricao"
+    >
+
+    <div class="btn-wrapper">
+      <button class="btn btn-cancel" (click)="emEdicao = false">Cancelar</button>
+
+      <button 
+        class="btn btn-save" 
+        (click)="tarefa.descricao = editedItem.value; emEdicao = false; modificaTarefa.emit(tarefa)">
+        Salvar
+      </button>
     </div>
+  </div>
 
-    <div *ngIf="emEdicao">
-        <input 
-            class="sm-text-input" 
-            #editedItem 
-            placeholder="escreva o novo nome da tarefa aqui" 
-            [value]="tarefa.descricao"
-        >
-
-        <div class="btn-wrapper">
-            <button class="btn" (click)="emEdicao = false">Cancelar</button>
-
-            <button 
-                class="btn btn-save" 
-                (click)="tarefa.descricao = editedItem.value; emEdicao = false; modificaTarefa.emit(tarefa)">
-                Salvar
-            </button>
-        </div>
-    </div>
 </div>
