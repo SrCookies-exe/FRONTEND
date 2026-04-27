@@ -1,7 +1,6 @@
 <div class="item">
 
-  <!-- TAREFA -->
-  <div class="tarefa">
+  <div class="tarefa-linha">
     <input 
       [id]="tarefa.descricao" 
       type="checkbox" 
@@ -16,25 +15,24 @@
     </label>
   </div>
 
-  <!-- BOTÕES ABAIXO -->
-  <div *ngIf="!emEdicao" class="botoes">
-    <button class="btn editar" (click)="emEdicao = true">Editar</button>
-    <button class="btn remover" (click)="remover.emit(tarefa)">Remover</button>
+  <div *ngIf="!emEdicao" class="btn-wrapper">
+    <button class="btn btn-edit" (click)="emEdicao = true">Editar</button>
+    <button class="btn btn-warn" (click)="remover.emit(tarefa)">Remover</button>
   </div>
 
-  <!-- EDIÇÃO -->
-  <div *ngIf="emEdicao" class="editar-box">
+  <div *ngIf="emEdicao" class="edit-box">
     <input 
       class="sm-text-input" 
       #editedItem 
+      placeholder="Novo nome da tarefa" 
       [value]="tarefa.descricao"
     >
 
-    <div class="botoes">
-      <button class="btn cancelar" (click)="emEdicao = false">Cancelar</button>
+    <div class="btn-wrapper">
+      <button class="btn btn-cancel" (click)="emEdicao = false">Cancelar</button>
 
       <button 
-        class="btn salvar" 
+        class="btn btn-save" 
         (click)="tarefa.descricao = editedItem.value; emEdicao = false; modificaTarefa.emit(tarefa)">
         Salvar
       </button>
