@@ -7,7 +7,13 @@
     Adicionar Tarefa
   </button>
 
-  <ul>
+  <!-- 👇 MENSAGEM QUANDO NÃO TEM TAREFAS -->
+  <div *ngIf="arrayDeTarefas().length === 0">
+    Nenhuma tarefa ainda. Adicione uma!
+  </div>
+
+  <!-- 👇 LISTA DE TAREFAS -->
+  <ul *ngIf="arrayDeTarefas().length > 0">
     <li *ngFor="let tarefaDoLoop of arrayDeTarefas()">
       <app-item 
         [tarefa]="tarefaDoLoop" 

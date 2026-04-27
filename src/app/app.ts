@@ -34,25 +34,18 @@ export class App {
       .subscribe(resultado => this.arrayDeTarefas.set(resultado));
   }
 
-  DELETE_tarefa(tarefaAserRemovida: Tarefa) {
-    const indice = this.arrayDeTarefas().indexOf(tarefaAserRemovida);
-    const id = this.arrayDeTarefas()[indice]._id;
-
-    this.http.delete<Tarefa>(`${this.apiURL}/api/delete/${id}`)
-      .subscribe(resultado => {
-        console.log(resultado);
-        this.READ_tarefa();
-      });
+  DELETE_tarefa(tarefa: Tarefa) {
+  this.http.delete(`${this.apiURL}/api/delete/${tarefa._id}`)
+    .subscribe(() => this.READ_tarefa());
   }
 
-  UPDATE_tarefa(tarefaAserModificada: Tarefa) {
-    const indice = this.arrayDeTarefas().indexOf(tarefaAserModificada);
-    const id = this.arrayDeTarefas()[indice]._id;
-
-    this.http.patch<Tarefa>(`${this.apiURL}/api/update/${id}`, tarefaAserModificada)
-      .subscribe(resultado => {
-        console.log(resultado);
-        this.READ_tarefa();
-      });
-  }
+   UPDATE_tarefa(tarefaAserModificada: Tarefa) {
+   this.http.patch<Tarefa>(
+     `${this.apiURL}/api/update/${tarefaAserModificada._id}`,
+     tarefaAserModificada
+   ).subscribe(resultado => {
+     console.log(resultado);
+     this.READ_tarefa();
+   });
+ }
 }

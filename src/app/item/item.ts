@@ -1,20 +1,19 @@
-import { Component, Input, Output, EventEmitter, output } from '@angular/core';
-import { Tarefa } from "../tarefa";
-
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Tarefa } from '../tarefa';
 
 @Component({
   selector: 'app-item',
-  standalone: false,
-  templateUrl: './item.html',
-  styleUrl: './item.css',
+  templateUrl: './app-item.html'
 })
 export class Item {
-  emEdicao = false;
-  @Input() tarefa: Tarefa = new Tarefa("", false);
+
+  @Input() tarefa!: Tarefa;
 
   @Output() remover = new EventEmitter<Tarefa>();
-  DELETE_tarefas(){
-    this.remover.emit(this.tarefa);
+  @Output() modificaTarefa = new EventEmitter<Tarefa>();
+
+  onCheckboxChange(event: any) {
+    this.tarefa.statusRealizada = event.target.checked;
+    this.modificaTarefa.emit(this.tarefa);
   }
-  @Output() modificaTarefa = new EventEmitter();
 }
