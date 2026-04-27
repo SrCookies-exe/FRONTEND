@@ -55,77 +55,63 @@ ul li {
     list-style: none;
 }
 
-
+/* BLOCO DO ITEM */
 .item {
   background: #fff;
   padding: 15px;
   margin-bottom: 15px;
-  border-radius: 12px;
+  border-radius: 10px;
+  text-align: center;
 }
 
-
-.tarefa-linha {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+/* TAREFA EM CIMA */
+.tarefa {
   margin-bottom: 10px;
 }
 
-
+/* TEXTO RIScado */
 .done {
   text-decoration: line-through;
   color: gray;
 }
 
-
-.btn-wrapper {
+/* BOTÕES EMBAIXO */
+.botoes {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 10px;
 }
 
-
+/* BOTÕES */
 .btn {
-  border-radius: 20px; /* 👈 ARREDONDADO */
-  padding: 8px 16px;
+  padding: 8px 18px;
+  border-radius: 20px; /* 🔥 borda curva */
+  border: none;
   cursor: pointer;
   transition: 0.2s;
 }
 
-
-.btn-edit {
-  background: #ddd;
+/* CORES */
+.editar {
+  background: #e0e0e0;
 }
 
-.btn-warn {
+.remover {
   background: #ff4d4d;
   color: white;
 }
 
-.btn-save {
+.salvar {
   background: #4CAF50;
   color: white;
 }
 
-.btn-cancel {
-  background: #888;
+.cancelar {
+  background: #999;
   color: white;
 }
 
-
 .btn:hover {
-  transform: scale(1.05);
-}
-
-
-.edit-box {
-  margin-top: 10px;
-}
-
-h1 span {
-  display: block;
-  font-size: 18px;
-  font-weight: normal;
+  transform: scale(1.08);
+  opacity: 0.9;
 }

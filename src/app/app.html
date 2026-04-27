@@ -1,8 +1,5 @@
 <div class="main">
-  <h1>
-    Guilherme 252862 <br>
-    <span>Otavio 253525</span>
-  </h1>
+  <h1>Guilherme 252862 - Otavio 253525</h1>
 
   <input class="lg-text-input" #campoNovoItem />
 
@@ -10,11 +7,11 @@
     Adicionar Tarefa
   </button>
   
-  <div *ngIf="arrayDeTarefas().length === 0" class="empty">
-    Nenhuma tarefa ainda. Adicione uma!
+  <div *ngIf="arrayDeTarefas().length === 0">
+    //Nenhuma tarefa ainda. Adicione uma!
   </div>
 
-  <ul class="lista" *ngIf="arrayDeTarefas().length > 0">
+  <ul *ngIf="arrayDeTarefas().length > 0">
     <li *ngFor="let tarefaDoLoop of arrayDeTarefas()">
       <app-item 
         [tarefa]="tarefaDoLoop" 
