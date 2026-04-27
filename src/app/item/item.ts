@@ -3,7 +3,8 @@ import { Tarefa } from '../tarefa';
 
 @Component({
   selector: 'app-item',
-  templateUrl: './item.html' 
+  templateUrl: './item.html',
+  standalone: false 
 })
 export class Item {
 
