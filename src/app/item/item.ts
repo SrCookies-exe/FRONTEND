@@ -3,7 +3,7 @@ import { Tarefa } from '../tarefa';
 
 @Component({
   selector: 'app-item',
-  templateUrl: './app-item.html'
+  templateUrl: './item.html' 
 })
 export class Item {
 
@@ -12,8 +12,5 @@ export class Item {
   @Output() remover = new EventEmitter<Tarefa>();
   @Output() modificaTarefa = new EventEmitter<Tarefa>();
 
-  onCheckboxChange(event: any) {
-    this.tarefa.statusRealizada = event.target.checked;
-    this.modificaTarefa.emit(this.tarefa);
-  }
+  emEdicao: boolean = false;
 }
